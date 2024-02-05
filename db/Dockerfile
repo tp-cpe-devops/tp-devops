@@ -16,4 +16,7 @@ RUN apk add --no-cache \
    && echo "Europe/Paris" > /etc/timezone \
    && apk del tzdata
 
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
+    && ln -s /usr/local/bin/docker-entrypoint.sh /
+
 VOLUME ["/var/lib/postgresql/data"]
