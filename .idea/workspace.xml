@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0025f364-50a1-42b1-b887-39dac2c40244" name="Changes" comment="mise en place du docker compose">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="0025f364-50a1-42b1-b887-39dac2c40244" name="Changes" comment="dependances de test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +100,8 @@
       <option name="presentableId" value="Default" />
       <updated>1707140260012</updated>
       <workItem from="1707140261101" duration="1927000" />
-      <workItem from="1707142237347" duration="643000" />
+      <workItem from="1707142237347" duration="1412000" />
+      <workItem from="1707147652271" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="suppression gitignore">
       <option name="closed" value="true" />
@@ -136,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707142635569</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dependances de test">
+      <option name="closed" value="true" />
+      <created>1707143132631</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707143132631</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +154,7 @@
     <MESSAGE value="checkpoint" />
     <MESSAGE value="mise en place d'un reverse proxy" />
     <MESSAGE value="mise en place du docker compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="mise en place du docker compose" />
+    <MESSAGE value="dependances de test" />
+    <option name="LAST_COMMIT_MESSAGE" value="dependances de test" />
   </component>
 </project>
