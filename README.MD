@@ -130,4 +130,3 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 `docker compose build .` : Construction des images Docker\
 `docker tag <img_name>:<version> <usr>/<img_name>:<version>` : Tag de l'image\
 `docker push <usr>/<img_name>:<version>` : Publication de l'image\
-`docker logout` : Déconnexion de Docker Hub
