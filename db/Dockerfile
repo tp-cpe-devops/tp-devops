@@ -16,5 +16,4 @@ RUN apk add --no-cache \
    && echo "Europe/Paris" > /etc/timezone \
    && apk del tzdata
 
-EXPOSE 5432
 VOLUME ["/var/lib/postgresql/data"]
