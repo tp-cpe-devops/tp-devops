@@ -93,41 +93,41 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 
 > **1-3 Documenter les commandes les plus importantes de docker-compose.**
 
-``docker-compose up`` : Démarre les services\
-``docker-compose down`` : Arrêter et supprimer les ressources\
-``docker-compose ps`` : Afficher l'état des services\
-``docker-compose logs`` : Afficher les journaux\
-``docker-compose exec`` : Exécuter une commande dans unservice\
-``docker-compose build`` : Construire les images\
-``docker-compose pull`` : Télécharger les images\
-``docker-compose restart`` : Redémarrer les services
+`docker-compose up` : Démarre les services\
+`docker-compose down` : Arrêter et supprimer les ressources\
+`docker-compose ps` : Afficher l'état des services\
+`docker-compose logs` : Afficher les journaux\
+`docker-compose exec` : Exécuter une commande dans unservice\
+`docker-compose build` : Construire les images\
+`docker-compose pull` : Télécharger les images\
+`docker-compose restart` : Redémarrer les services
 
 > **1-4 Documenter votre fichier docker-compose.**
 
-- ``version: '3.7'`` : Spécifie la version de la syntaxe Docker Compose utilisée
-- ``services : Section définissant les services``
-  - ``backend``
-    - ``build: backend/.`` : Construit l'image du backend à partir du dossier backend/.
-    - ``container_name: backend`` : Nomme le conteneur "backend"
-    - ``networks: app-network`` : Connecte le conteneur au réseau "app-network"
-    - ``depends_on: database, httpd`` : Permet d'attendre que les services database et httpd soient lancés avant de démarrer le backend
-  - ``database``
-    - ``ports: "5432:5432"`` : Map le port 5432 de l'hôte au port 5432 du conteneur
-    - ``build: db/.`` : Construit l'image de la base de données à partir du dossier db/.
-    - ``container_name: postgres`` : Nomme le conteneur "postgres"
-    - ``networks: app-network`` : Connecte le conteneur au réseau "app-network"
-  - ``httpd``
-    - ``ports: "80:80"`` : Map le port 80 de l'hôte au port 80 du conteneur
-    - ``build: webserver/.`` : Construit l'image du serveur web à partir du dossier webserver/.
-    - ``container_name: webserver`` : Nomme le conteneur "webserver"
-    - ``networks: app-network`` : Connecte le conteneur au réseau "app-network"
-  - ``networks`` : Section définissant le réseau "app-network"
-    - ``app-network`` : Un réseau défini pour connecter les services
+- `version: '3.7'` : Spécifie la version de la syntaxe Docker Compose utilisée
+- `services : Section définissant les services`
+  - `backend`
+    - `build: backend/.` : Construit l'image du backend à partir du dossier backend/.
+    - `container_name: backend` : Nomme le conteneur "backend"
+    - `networks: app-network` : Connecte le conteneur au réseau "app-network"
+    - `depends_on: database, httpd` : Permet d'attendre que les services database et httpd soient lancés avant de démarrer le backend
+  - `database`
+    - `ports: "5432:5432"` : Map le port 5432 de l'hôte au port 5432 du conteneur
+    - `build: db/.` : Construit l'image de la base de données à partir du dossier db/.
+    - `container_name: postgres` : Nomme le conteneur "postgres"
+    - `networks: app-network` : Connecte le conteneur au réseau "app-network"
+  - `httpd`
+    - `ports: "80:80"` : Map le port 80 de l'hôte au port 80 du conteneur
+    - `build: webserver/.` : Construit l'image du serveur web à partir du dossier webserver/.
+    - `container_name: webserver` : Nomme le conteneur "webserver"
+    - `networks: app-network` : Connecte le conteneur au réseau "app-network"
+  - `networks` : Section définissant le réseau "app-network"
+    - `app-network` : Un réseau défini pour connecter les services
 
 > **1-5 Documentez vos commandes de publication et les images publiées dans dockerhub.**
 
-``docker login -u <usr>`` puis entrer un access token : Connexion à Docker Hub\
-``docker build -t <img_name>:<version> <path>`` : Construction de l'image Docker\
-``docker tag <img_name>:<version> <usr>/<img_name>:<version>`` : Tag de l'image\
-``docker push <usr>/<img_name>:<version>`` : Publication de l'image\
-``docker logout`` : Déconnexion de Docker Hub
+`docker login -u <usr>` puis entrer un access token : Connexion à Docker Hub\
+`docker compose build .` : Construction des images Docker\
+`docker tag <img_name>:<version> <usr>/<img_name>:<version>` : Tag de l'image\
+`docker push <usr>/<img_name>:<version>` : Publication de l'image\
+`docker logout` : Déconnexion de Docker Hub
