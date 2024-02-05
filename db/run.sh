@@ -9,5 +9,5 @@ echo "Postgres is running ..."
 # Configuration d'adminer
 docker stop adminer > /dev/null;
 docker rm adminer > /dev/null; 
-docker run -d --link postgres:db -p 8080:8080 --name adminer adminer 1> /dev/null
+docker run -d --link postgres:db -p 9090:8080 --name adminer adminer 1> /dev/null
 echo "Adminer is running ..."
