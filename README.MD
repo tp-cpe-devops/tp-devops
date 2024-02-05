@@ -90,3 +90,4 @@ docker run -d --link postgres:db -p 9090:8080 --name adminer adminer > /dev/null
 
 On construit en plusieurs étapes est utilisée pour optimiser la taille de l'image Docker finale.
 On sépare les phases de construction de l'application de la phase d'exécution. On réduit la taille de l'image finale en n'incluant que les artefacts nécessaires à l'exécution de l'application, sans conserver les outils de construction ni les fichiers temporaires.
+

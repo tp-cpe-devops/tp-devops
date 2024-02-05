@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0025f364-50a1-42b1-b887-39dac2c40244" name="Changes" comment="suppression gitignore" />
+    <list default="true" id="0025f364-50a1-42b1-b887-39dac2c40244" name="Changes" comment="checkpoint">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webserver/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/webserver/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webserver/httpd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/webserver/httpd.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webserver/index.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707140260012</updated>
-      <workItem from="1707140261101" duration="421000" />
+      <workItem from="1707140261101" duration="1475000" />
     </task>
     <task id="LOCAL-00001" summary="suppression gitignore">
       <option name="closed" value="true" />
@@ -69,7 +77,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707140440464</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="checkpoint">
+      <option name="closed" value="true" />
+      <created>1707140853872</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707140853872</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -77,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="suppression gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="suppression gitignore" />
+    <MESSAGE value="checkpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkpoint" />
   </component>
 </project>
