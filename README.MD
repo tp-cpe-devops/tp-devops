@@ -71,3 +71,6 @@ docker rm adminer > /dev/null;
 # Démarrage du conteneur Adminer en mode détaché, lié au conteneur PostgreSQL, et exposition du port 8080
 docker run -d --link postgres:db -p 8080:8080 --name adminer adminer > /dev/null
 ```
+
+> **1-2 Pourquoi avons-nous besoin d'une construction en plusieurs étapes ? Et expliquez chaque étape de ce fichier docker.**
+
