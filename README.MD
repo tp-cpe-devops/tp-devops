@@ -108,7 +108,6 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 - ``services : Section définissant les services``
   - ``backend``
     - ``build: backend/.`` : Construit l'image du backend à partir du dossier backend/.
-    - ``ports: "8080:8080"`` : Map le port 8080 de l'hôte au port 8080 du conteneur
     - ``container_name: backend`` : Nomme le conteneur "backend"
     - ``networks: app-network`` : Connecte le conteneur au réseau "app-network"
     - ``depends_on: database, httpd`` : Permet d'attendre que les services database et httpd soient lancés avant de démarrer le backend
@@ -128,6 +127,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 > **1-5 Documentez vos commandes de publication et les images publiées dans dockerhub.**
 
 ``docker login -u <usr> -p <pwd>`` : Connexion à Docker Hub\
+OU ``docker login -u <usr>`` puis entrer un access token
 ``docker build -t <img_name>:<version> <path>`` : Construction de l'image Docker\
 ``docker tag <img_name>:<version> <usr>/<img_name>:<version>`` : Tag de l'image\
 ``docker push <usr>/<img_name>:<version>`` : Publication de l'image\
