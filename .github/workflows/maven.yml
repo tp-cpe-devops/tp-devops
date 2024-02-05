@@ -1,10 +1,8 @@
 name: CI devops 2023
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  #to begin you want to launch this job in main and develop
   push:
     branches: main
-  pull_request:
-
 jobs:
   test-backend: 
     runs-on: ubuntu-22.04
