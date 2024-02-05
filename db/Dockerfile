@@ -8,8 +8,6 @@ COPY ./init-db-scripts/ /docker-entrypoint-initdb.d/
 
 EXPOSE 5432
 
-# Installation de packages supplémentaires (facultatif)
-# Utiliser apk, le gestionnaire de paquets d'Alpine, pour une installation légère
 RUN apk add --no-cache \
    bash \
    vim \
