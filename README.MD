@@ -102,7 +102,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 ``docker-compose pull`` : Télécharger les images\
 ``docker-compose restart`` : Redémarrer les services
 
-> **1-4 Documenter votre fichier docker-compose.**`
+> **1-4 Documenter votre fichier docker-compose.**
 
 - ``version: '3.7'`` : Spécifie la version de la syntaxe Docker Compose utilisée
 - ``services : Section définissant les services``
@@ -124,3 +124,11 @@ On sépare les phases de construction de l'application de la phase d'exécution.
     - ``networks: app-network`` : Connecte le conteneur au réseau "app-network"
   - ``networks`` : Section définissant le réseau "app-network"
     - ``app-network`` : Un réseau défini pour connecter les services
+
+> **1-5 Document your publication commands and published images in dockerhub.**
+
+``docker login -u <usr> -p <pwd>`` : Connexion à Docker Hub\
+``docker build -t <img_name>:<version> <path>`` : Construction de l'image Docker\
+``docker tag <img_name>:<version> <usr>/<img_name>:<version>`` : Tag de l'image\
+``docker push <usr>/<img_name>:<version>`` : Publication de l'image\
+``docker logout`` : Déconnexion de Docker Hub
