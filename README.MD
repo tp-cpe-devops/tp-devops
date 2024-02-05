@@ -125,7 +125,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
   - ``networks`` : Section définissant le réseau "app-network"
     - ``app-network`` : Un réseau défini pour connecter les services
 
-> **1-5 Document your publication commands and published images in dockerhub.**
+> **1-5 Documentez vos commandes de publication et les images publiées dans dockerhub.**
 
 ``docker login -u <usr> -p <pwd>`` : Connexion à Docker Hub\
 ``docker build -t <img_name>:<version> <path>`` : Construction de l'image Docker\
