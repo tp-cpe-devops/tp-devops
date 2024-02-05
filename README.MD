@@ -126,8 +126,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 
 > **1-5 Documentez vos commandes de publication et les images publiées dans dockerhub.**
 
-``docker login -u <usr> -p <pwd>`` : Connexion à Docker Hub\
-OU ``docker login -u <usr>`` puis entrer un access token
+``docker login -u <usr>`` puis entrer un access token : Connexion à Docker Hub\
 ``docker build -t <img_name>:<version> <path>`` : Construction de l'image Docker\
 ``docker tag <img_name>:<version> <usr>/<img_name>:<version>`` : Tag de l'image\
 ``docker push <usr>/<img_name>:<version>`` : Publication de l'image\
