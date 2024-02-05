@@ -1,5 +1,4 @@
 name: CI devops 2023
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: main
@@ -8,12 +7,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2.5.0
-
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-
       - name: Build and test with Maven
+        working-directory: ./backend/simpleapi
         run: mvn clean verify
