@@ -25,11 +25,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./db
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-backend:1.0.0
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-database:1.0.0
           push: true
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
           context: ./webserver
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-backend:1.0.0
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-httpd:1.0.0
           push: true
