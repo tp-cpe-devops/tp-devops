@@ -136,7 +136,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 
 > **2-1 Qu'est ce que testcontainers ?**
 
-_Testcontainers_ est une bibliothèque Java qui rationalise les tests d'intégration avec des instances légères et jetables de bases de données, de navigateurs web et d'autres services dans des conteneurs Docker.
+_Testcontainers_ est une bibliothèque Java qui rationalise les tests d'intégration avec des instances légères et jetables de bases de données, de navigateurs web et d'autres services dans des conteneurs Docker. On peut ainsi faire des tests d'intégrations facilement en contactant des instances de containers de manière rapide et légère dans l'instance de CI.
 
 **Avantages:**
 
