@@ -4,6 +4,7 @@ on:
     branches: main
 jobs:
   test-backend:
+    name: "Test de l'application Spring"
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2.5.0
@@ -17,6 +18,7 @@ jobs:
         run: mvn clean verify
 
   build-and-push-docker-image:
+    name: "Build and push Docker image"
     needs: test-backend
     runs-on: ubuntu-22.04
     steps:
