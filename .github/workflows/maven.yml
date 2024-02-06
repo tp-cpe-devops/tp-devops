@@ -18,7 +18,7 @@ jobs:
         run: mvn clean verify
       - name: Quality gate
         working-directory: ./backend/simpleapi
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp-cpe-devops -Dsonar.organization=tp-cpe-devops -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp-cpe-devops_tp-devops -Dsonar.organization=tp-cpe-devops -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
 
   build-and-push-docker-image:
     name: "Build and push Docker image"
