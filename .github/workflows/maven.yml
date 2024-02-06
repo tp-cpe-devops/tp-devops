@@ -27,6 +27,7 @@ jobs:
         with:
           context: ./backend
           tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-backend:1.0.0
+          push: ${{ github.ref == 'refs/heads/main' }}
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:

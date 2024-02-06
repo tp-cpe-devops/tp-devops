@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0025f364-50a1-42b1-b887-39dac2c40244" name="Changes" comment="dependances de test">
+    <list default="true" id="0025f364-50a1-42b1-b887-39dac2c40244" name="Changes" comment="utilisation de l'image">
       <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <workItem from="1707140261101" duration="1927000" />
       <workItem from="1707142237347" duration="1412000" />
       <workItem from="1707147652271" duration="92000" />
-      <workItem from="1707206412267" duration="865000" />
+      <workItem from="1707206412267" duration="1289000" />
     </task>
     <task id="LOCAL-00001" summary="suppression gitignore">
       <option name="closed" value="true" />
@@ -148,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707143132631</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="utilisation de l'image">
+      <option name="closed" value="true" />
+      <created>1707207328498</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707207328498</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +165,7 @@
     <MESSAGE value="mise en place d'un reverse proxy" />
     <MESSAGE value="mise en place du docker compose" />
     <MESSAGE value="dependances de test" />
-    <option name="LAST_COMMIT_MESSAGE" value="dependances de test" />
+    <MESSAGE value="utilisation de l'image" />
+    <option name="LAST_COMMIT_MESSAGE" value="utilisation de l'image" />
   </component>
 </project>
