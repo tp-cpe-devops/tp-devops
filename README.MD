@@ -131,3 +131,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 `docker image ls` : Voir la liste des images Docker\
 `docker tag <img_name>:<version> <usr>/<img_name>:<version>` : Tag de l'image\
 `docker push <usr>/<img_name>:<version>` : Publication de l'image\
+
+# TP partie 02
+
+> **1-1 ...**
