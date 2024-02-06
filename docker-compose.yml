@@ -6,7 +6,7 @@ services:
       - POSTGRES_DB=db
       - POSTGRES_USER=usr
       - POSTGRES_PASSWORD=pwd
-    build: backend/.
+    image: reachip/devops-backend:1.0.0
     container_name: backend
     networks:
       - app-network
@@ -21,7 +21,7 @@ services:
       - POSTGRES_PASSWORD=pwd
     ports:
       - "5432:5432"
-    build: db/.
+    image: reachip/devops-database:1.0.0
     container_name: postgres
     networks:
       - app-network
@@ -29,7 +29,7 @@ services:
   httpd:
     ports:
       - "80:80"
-    build: webserver/.
+    image: reachip/devops-httpd:1.0.0
     container_name: webserver
     networks:
       - app-network
