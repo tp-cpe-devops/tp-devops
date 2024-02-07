@@ -38,4 +38,4 @@ jobs:
         run: mvn clean verify
       - name: Quality gate with Sonar
         working-directory: ./backend/simpleapi
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp-cpe-devops_tp-devops -Dsonar.organization=tp-cpe-devops -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp-cpe-devops-2_tp-devops -Dsonar.organization=tp-cpe-devops-2 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml

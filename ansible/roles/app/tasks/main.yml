@@ -12,6 +12,8 @@
       POSTGRES_PASSWORD: "pwd"
       POSTGRES_USER: "usr"
       POSTGRES_DB: "db"
+      POSTGRES_HOSTNAME: "{{ postgres_hostname }}"
+      
     published_ports:
       - "{{ port_expose }}"
 

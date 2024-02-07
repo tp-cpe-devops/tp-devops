@@ -5,6 +5,7 @@ all:
     postgres_password: pwd
     postgres_user: usr
     postgres_db: db
+    postgres_hostname: postgres
     network: app-network
   children:
     prod:
