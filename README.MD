@@ -420,3 +420,165 @@ Ce playbook Ansible est utilisé pour configurer des hôtes cibles pour exécute
 **Install docker with Python 3** : Installe "docker" avec Python 3
 
 **Make sure Docker is running** : Démarre le service Docker et assure qu'il est en cours d'exécution
+
+> **3-3 Documenter votre configuration des tasks de docker_container**
+
+### ``app`` :
+#### Tâche 1 : Arrêter et supprimer le container Docker
+- Cette tâche utilise le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est spécifié à l'aide de la variable `app_name`.
+- L'état du conteneur est défini sur "absent", ce qui signifie qu'il sera arrêté et supprimé s'il existe.
+- L'option `ignore_errors` est définie sur `true`, ce qui signifie que les erreurs éventuelles seront ignorées.
+
+#### Tâche 2 : Tirer et lancer le container Docker
+- Cette tâche utilise également le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est spécifié à l'aide de la variable `app_name`.
+- L'image Docker à utiliser est spécifiée à l'aide de la variable `docker_image`.
+- L'état du conteneur est défini sur `started`, ce qui signifie que le conteneur sera démarré.
+- L'option `recreate` est définie sur `true`, ce qui signifie que le conteneur sera recréé s'il existe déjà.
+- L'option `pull` est définie sur `true`, ce qui signifie que l'image Docker sera récupérée si elle n'est pas déjà présente localement.
+- Le mode réseau du conteneur est spécifié à l'aide de la variable `network`.
+- Les ports exposés sont spécifiés à l'aide de la variable `port_expose`.
+- Les variables d'environnement pour le conteneur sont spécifiées pour définir le mot de passe, l'utilisateur et la base de données PostgreSQL.
+
+#### Tâche 3 : Afficher le message de confirmation
+- Cette tâche utilise le module `debug` pour afficher un message.
+- Le message affiché indique que le conteneur spécifié par `app_name` est en cours d'exécution.
+---
+### ``database`` :
+#### Tâche 1 : Arrêter et supprimer le container Docker
+- Cette tâche utilise le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est spécifié à l'aide de la variable `app_name`.
+- L'état du conteneur est défini sur "absent", ce qui signifie qu'il sera arrêté et supprimé s'il existe.
+- L'option `ignore_errors` est définie sur `true`, ce qui signifie que les erreurs éventuelles seront ignorées.
+
+#### Tâche 2 : Tirer et lancer le container Docker
+- Cette tâche utilise également le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est spécifié à l'aide de la variable `app_name`.
+- L'image Docker à utiliser est spécifiée à l'aide de la variable `docker_image`.
+- L'état du conteneur est défini sur "started", ce qui signifie que le conteneur sera démarré.
+- L'option `recreate` est définie sur `true`, ce qui signifie que le conteneur sera recréé s'il existe déjà.
+- L'option `pull` est définie sur `true`, ce qui signifie que l'image Docker sera récupérée si elle n'est pas déjà présente localement.
+- Le mode réseau du conteneur est spécifié à l'aide de la variable `network`.
+- Les ports exposés sont spécifiés à l'aide de la variable `port_expose`.
+- Les variables d'environnement pour le conteneur sont spécifiées pour définir le mot de passe, l'utilisateur et la base de données PostgreSQL.
+
+#### Tâche 3 : Afficher le message de confirmation
+- Cette tâche utilise le module `debug` pour afficher un message.
+- Le message affiché indique que le conteneur spécifié par `app_name` est en cours d'exécution.
+---
+### ``docker`` :
+#### Tâche 1 : Installer device-mapper-persistent-data
+- Cette tâche utilise le module `yum` pour installer des packages via le gestionnaire de paquets yum.
+- Le package `device-mapper-persistent-data` est installé avec l'état `latest`, ce qui signifie qu'il sera mis à jour s'il est déjà installé.
+
+#### Tâche 2 : Installer lvm2
+- Cette tâche utilise également le module `yum` pour installer des packages via yum.
+- Le package `lvm2` est installé avec l'état `latest`, ce qui garantit qu'il est à jour.
+
+#### Tâche 3 : Ajouter le dépôt Docker
+- Cette tâche utilise le module `command` pour exécuter une commande shell.
+- La commande `sudo yum-config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo` ajoute le dépôt Docker au système.
+
+#### Tâche 4 : Installer Docker
+- Cette tâche utilise à nouveau le module `yum` pour installer le package Docker Community Edition (`docker-ce`).
+- L'état est défini sur `present`, ce qui garantit que le package sera installé s'il ne l'est pas déjà.
+
+#### Tâche 5 : Installer python3
+- Cette tâche utilise le module `yum` pour installer Python 3.
+- L'état est défini sur `present`, ce qui garantit que Python 3 sera installé s'il ne l'est pas déjà.
+
+#### Tâche 6 : Installer docker avec Python 3
+- Cette tâche utilise le module `pip` pour installer le module Python `docker`.
+- L'exécutable `pip3` est spécifié pour installer le module pour Python 3.
+- La variable `ansible_python_interpreter` est définie sur `/usr/bin/python3` pour assurer que le bon interpréteur Python est utilisé.
+
+#### Tâche 7 : S'assurer que Docker est en cours d'exécution
+- Cette tâche utilise le module `service` pour s'assurer que le service Docker est démarré.
+- Le tag `docker` est ajouté pour permettre de cibler spécifiquement cette tâche lors de l'exécution avec des tags.
+
+#### Tâche 8 : Vérifier si déjà connecté à Docker
+- Cette tâche utilise le module `command` pour exécuter la commande `docker info` et enregistre le résultat dans la variable `docker_info`.
+- Les erreurs sont ignorées avec `ignore_errors: true`, ce qui signifie que si la commande échoue, cela ne provoquera pas une erreur dans l'exécution du playbook.
+
+#### Tâche 9 : Se connecter à DockerHub
+- Cette tâche utilise le module `docker_login` pour se connecter à DockerHub.
+- Les identifiants DockerHub sont spécifiés à l'aide des variables `docker_hub_username` et `docker_hub_password`.
+---
+### ``frontend`` :
+#### Tâche 1 : Arrêter et supprimer le container Docker
+- Cette tâche utilise le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est spécifié à l'aide de la variable `app_name`.
+- L'état du conteneur est défini sur "absent", ce qui signifie qu'il sera arrêté et supprimé s'il existe.
+- L'option `ignore_errors` est définie sur `true`, ce qui signifie que les erreurs éventuelles seront ignorées.
+
+#### Tâche 2 : Tirer et lancer le container Docker
+- Cette tâche utilise également le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est spécifié à l'aide de la variable `app_name`.
+- L'image Docker à utiliser est spécifiée à l'aide de la variable `docker_image`.
+- L'état du conteneur est défini sur "started", ce qui signifie que le conteneur sera démarré.
+- L'option `recreate` est définie sur `true`, ce qui signifie que le conteneur sera recréé s'il existe déjà.
+- L'option `pull` est définie sur `true`, ce qui signifie que l'image Docker sera récupérée si elle n'est pas déjà présente localement.
+- Le mode réseau du conteneur est spécifié à l'aide de la variable `network`.
+- Les ports exposés sont spécifiés à l'aide de la variable `port_expose`.
+
+#### Tâche 3 : Afficher le message de confirmation
+- Cette tâche utilise le module `debug` pour afficher un message.
+- Le message affiché indique que le conteneur spécifié par `app_name` est en cours d'exécution.
+---
+### ``network`` :
+#### Tâche 1 : Créer un réseau
+- Cette tâche utilise le module `docker_network` pour créer un réseau Docker.
+- Le nom du réseau est spécifié à l'aide de la variable `docker_network`.
+---
+### ``proxy`` :
+#### Tâche 1 : Arrêter et supprimer le container Docker
+- Cette tâche utilise le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est défini en dur comme "httpd".
+- L'état du conteneur est défini sur "absent", ce qui signifie qu'il sera arrêté et supprimé s'il existe.
+- L'option `ignore_errors` est définie sur `true`, ce qui signifie que les erreurs éventuelles seront ignorées.
+
+#### Tâche 2 : Tirer et lancer le container Docker
+- Cette tâche utilise également le module `docker_container` pour gérer les conteneurs Docker.
+- Le nom du conteneur est défini en dur comme "httpd".
+- L'image Docker à utiliser est spécifiée à l'aide de la variable `docker_image`.
+- L'état du conteneur est défini sur "started", ce qui signifie que le conteneur sera démarré.
+- L'option `recreate` est définie sur `true`, ce qui signifie que le conteneur sera recréé s'il existe déjà.
+- L'option `pull` est définie sur `true`, ce qui signifie que l'image Docker sera récupérée si elle n'est pas déjà présente localement.
+- Le mode réseau du conteneur est spécifié à l'aide de la variable `network`.
+- Les ports exposés sont spécifiés à l'aide de la variable `port_expose`.
+
+#### Tâche 3 : Afficher le message de confirmation
+- Cette tâche utilise le module `debug` pour afficher un message.
+- Le message affiché indique que le conteneur spécifié par `app_name` est en cours d'exécution.
+---
+### ``setup.yml`` :
+```yml
+all:
+  vars:
+    ansible_user: centos
+    ansible_ssh_private_key_file: id_rsa
+    postgres_password: pwd
+    postgres_user: usr
+    postgres_db: db
+    network: app-network
+  children:
+    prod:
+      hosts: centos@baptiste.gris.takima.cloud
+```
+
+#### Variables globales
+- Les variables globales sont définies sous la section `vars`.
+  - `ansible_user`: Définit l'utilisateur Ansible à utiliser lors de la connexion aux hôtes, défini comme `centos`.
+  - `ansible_ssh_private_key_file`: Définit le chemin vers le fichier de clé privée SSH à utiliser pour la connexion aux hôtes, défini comme `id_rsa`.
+  - `postgres_password`: Définit le mot de passe de la base de données PostgreSQL, défini comme `pwd`.
+  - `postgres_user`: Définit le nom d'utilisateur de la base de données PostgreSQL, défini comme `usr`.
+  - `postgres_db`: Définit le nom de la base de données PostgreSQL, défini comme `db`.
+  - `network`: Définit le nom du réseau Docker à utiliser, défini comme `app-network`.
+
+#### Groupes d'hôtes
+- Les hôtes sont regroupés sous la section `children`.
+  - Le groupe `prod` est défini pour les serveurs de production.
+  - L'hôte spécifique `centos@baptiste.gris.takima.cloud` est spécifié sous le groupe `prod`.
+    - `centos`: Nom d'utilisateur pour la connexion SSH.
+    - `baptiste.gris.takima.cloud`: Nom d'hôte ou adresse IP de l'hôte
