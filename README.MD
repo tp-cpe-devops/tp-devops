@@ -1,4 +1,4 @@
-# TP partie 01
+# TP partie 1
 
 > **1-1 Documentez les éléments essentiels de votre conteneur de base de données : commandes et Dockerfile.**
 
@@ -132,7 +132,7 @@ On sépare les phases de construction de l'application de la phase d'exécution.
 `docker tag <img_name>:<version> <usr>/<img_name>:<version>` : Tag de l'image\
 `docker push <usr>/<img_name>:<version>` : Publication de l'image\
 
-# TP partie 02
+# TP partie 2
 
 > **2-1 Qu'est ce que testcontainers ?**
 
@@ -296,3 +296,127 @@ Chacun de nos critères doit prétendre à une note qui ne doit pas être infér
 La couverture de test doit être supérieur ou égale à 80% et le taux de duplication doit être inférieure à 3%.
 
 Si une de ces conditions n'est pas respéctée, l'étape de quality gate dans la CI échoue.
+
+# TP partie 3
+
+> **3-1 Documenter votre inventaire et vos commandes de base**
+
+Inventaire (``setup.yml``) :
+```yml
+all:
+ vars:
+   ansible_user: centos
+   ansible_ssh_private_key_file: id_rsa
+ children:
+   prod:
+     hosts: centos@baptiste.gris.takima.cloud
+```
+
+Commandes de base : 
+- Test de ping :
+
+  ```
+  ansible all -i inventories/setup.yml -m ping
+  ```
+  Teste la connectivité à tous les hôtes répertoriés dans le fichier d'inventaire en utilisant le module ping.
+
+- Récupération distrib. OS :
+
+  ```
+  ansible all -i inventories/setup.yml -m setup -a "filter=ansible_distribution*"
+  ```
+  Collecte des facts sur les hôtes répertoriés dans le fichier d'inventaire. Elle les filter pour récupérer des informations relatives à la distribution du système d'exploitation.
+
+- Gestion des Packages (Yum) - Suppression du Serveur HTTP Apache :
+
+  ```
+  ansible all -i inventories/setup.yml -m ping
+  ```
+  Supprime le serveur httpd de tous les hôtes répertoriés dans le fichier d'inventaire en utilisant le module yum avec le nom du package et son état spécifiés.
+
+> **3-2 Documenter votre playbook**
+
+``playbook.yml`` :
+```yml
+- hosts: all
+  gather_facts: false
+  become: true
+
+  roles:
+  - docker
+
+  tasks:
+  - name: Test connection
+    ping:
+```
+
+Ce playbook Ansible est utilisé pour configurer des hôtes cibles pour exécuter des conteneurs Docker :
+
+- `hosts: all`: Signifie que les tâches dans ce playbook seront exécutées sur tous les hôtes spécifiés dans l'inventaire Ansible.
+
+- `gather_facts: false`: Désactive la collecte automatique des facts sur les hôtes.
+
+- `become: true`: Active les privilèges super-utilisateur
+
+- `roles`: Rôles à exécuter (ici le rôle docker)
+
+- `tasks`: Tâches du playbook
+
+  - `name: Test connection`: Nom donné à la tâche
+  
+  - `ping`: Action Ansible de ping
+
+---
+
+``roles/docker/tasks/main.yml`` :
+```yml
+# tasks file for roles/docker
+- name: Install device-mapper-persistent-data
+  yum:
+    name: device-mapper-persistent-data
+    state: latest
+
+- name: Install lvm2
+  yum:
+    name: lvm2
+    state: latest
+
+- name: add repo docker
+  command:
+    cmd: sudo yum-config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: Install Docker
+  yum:
+    name: docker-ce
+    state: present
+
+- name: Install python3
+  yum:
+    name: python3
+    state: present
+
+- name: Install docker with Python 3
+  pip:
+    name: docker
+    executable: pip3
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: Make sure Docker is running
+  service: name=docker state=started
+  tags: docker
+```
+
+**Install device-mapper-persistent-data** : Installe "device-mapper-persistent-data" avec yum
+
+**Install lvm2** : Installe "lvm2" avec yum
+
+**Add repo docker** : Utilise la commande shell pour ajouter le référentiel Docker à partir de l'URL spécifiée
+
+**Install Docker** : Installe "docker-ce" avec yum
+
+**Install python3** : Installe "python3" avec yum
+
+**Install docker with Python 3** : Installe "docker" avec Python 3
+
+**Make sure Docker is running** : Démarre le service Docker et assure qu'il est en cours d'exécution
