@@ -306,7 +306,7 @@ Inventaire (``setup.yml``) :
 all:
  vars:
    ansible_user: centos
-   ansible_ssh_private_key_file: id_rsa
+   ansible_ssh_private_key_file: .ansible_key
  children:
    prod:
      hosts: centos@baptiste.gris.takima.cloud
@@ -557,7 +557,7 @@ Ce playbook Ansible est utilisé pour configurer des hôtes cibles pour exécute
 all:
   vars:
     ansible_user: centos
-    ansible_ssh_private_key_file: id_rsa
+    ansible_ssh_private_key_file: .ansible_key
     postgres_password: pwd
     postgres_user: usr
     postgres_db: db
@@ -570,7 +570,7 @@ all:
 #### Variables globales
 - Les variables globales sont définies sous la section `vars`.
   - `ansible_user`: Définit l'utilisateur Ansible à utiliser lors de la connexion aux hôtes, défini comme `centos`.
-  - `ansible_ssh_private_key_file`: Définit le chemin vers le fichier de clé privée SSH à utiliser pour la connexion aux hôtes, défini comme `id_rsa`.
+  - `ansible_ssh_private_key_file`: Définit le chemin vers le fichier de clé privée SSH à utiliser pour la connexion aux hôtes, défini comme `.ansible_key`.
   - `postgres_password`: Définit le mot de passe de la base de données PostgreSQL, défini comme `pwd`.
   - `postgres_user`: Définit le nom d'utilisateur de la base de données PostgreSQL, défini comme `usr`.
   - `postgres_db`: Définit le nom de la base de données PostgreSQL, défini comme `db`.
