@@ -1,7 +1,7 @@
 all:
   vars:
     ansible_user: centos
-    ansible_ssh_private_key_file: id_rsa
+    ansible_ssh_private_key_file: .ansible_key
     postgres_password: pwd
     postgres_user: usr
     postgres_db: db

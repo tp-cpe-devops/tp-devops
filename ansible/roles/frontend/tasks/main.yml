@@ -1,12 +1,5 @@
 ---
 # tasks file for roles/frontend
-
-- name: Arrêter et supprimer le container Docker '{{ app_name }}' s'il existe
-  docker_container:
-    name: "{{ app_name }}"
-    state: absent
-  ignore_errors: true
-
 - name: Tirer et lancer le container Docker '{{ app_name }}'
   docker_container:
     name: "{{ app_name }}"

@@ -1,15 +1,15 @@
+---
 - name: Configurer et lancer des services via Docker
   hosts: all
-  gather_facts: false
   become: true
-  vars_files:
-    - vars/shared_vars.yml
+  tasks:
+    - name: Tâches globales avant les rôles
+      debug:
+        msg: "Exécution de tâches globales"
   roles:
     - docker
     - network
     - database
     - app
+    - frontend
     - proxy
-  tasks:
-    - name: Tester la connexion
-      ping:

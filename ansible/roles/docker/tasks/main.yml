@@ -39,10 +39,3 @@
   command: docker info
   register: docker_info
   ignore_errors: true
-
-- name: Se connecter à DockerHub
-  docker_login:
-    username: "{{ docker_hub_username }}"
-    password: "{{ docker_hub_password }}"
-
-

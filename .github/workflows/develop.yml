@@ -1,5 +1,25 @@
 name: CI devops test backend
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tags:
+        description: "Test scenario tags"
+        required: false
+        type: boolean
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        required: true
+
   push:
     branches: [develop, main]
 jobs:
@@ -18,4 +38,4 @@ jobs:
         run: mvn clean verify
       - name: Quality gate with Sonar
         working-directory: ./backend/simpleapi
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp-cpe-devops_tp-devops -Dsonar.organization=tp-cpe-devops -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=tp-cpe-devops-2_tp-devops -Dsonar.organization=tp-cpe-devops-2 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
