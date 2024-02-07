@@ -8,7 +8,7 @@
     recreate: true
     pull: true
     network_mode: "{{ network }}"
-    published_ports:
+    exposed_ports:
       - "{{ port_expose }}"
 
 - name: Afficher le message de confirmation
