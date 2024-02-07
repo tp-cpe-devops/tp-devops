@@ -12,6 +12,8 @@
       POSTGRES_PASSWORD: "pwd"
       POSTGRES_USER: "usr"
       POSTGRES_DB: "db"
+    published_ports:
+      - "{{ port_expose }}"
 
 - name: Afficher le message de confirmation
   debug:
