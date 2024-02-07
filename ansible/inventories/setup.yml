@@ -9,4 +9,4 @@ all:
     network: app-network
   children:
     prod:
-      hosts: centos@baptiste.gris.takima.cloud
+      hosts: baptiste.gris.takima.cloud
