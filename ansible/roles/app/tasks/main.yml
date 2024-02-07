@@ -13,7 +13,6 @@
       POSTGRES_USER: "usr"
       POSTGRES_DB: "db"
       POSTGRES_HOSTNAME: "{{ postgres_hostname }}"
-
 - name: Afficher le message de confirmation
   debug:
     msg: "{{ app_name }} is running ..."

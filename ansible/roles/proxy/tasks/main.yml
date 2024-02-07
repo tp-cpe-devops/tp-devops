@@ -9,8 +9,7 @@
     pull: true
     network_mode: "{{ network }}"
     published_ports:
-      - "80:80"
-      - "8080:8080"
+      - "{{ port_expose }}"
 
 - name: Afficher le message de confirmation
   debug:
