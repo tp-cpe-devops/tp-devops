@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   backend:
@@ -31,6 +31,14 @@ services:
       - "80:80"
     image: baptistegris/devops-httpd:1.0.0
     container_name: webserver
+    networks:
+      - app-network
+
+  frontend:
+    ports:
+      - "9090:80"
+    image: baptistegris/devops-frontend:1.0.0
+    container_name: frontend
     networks:
       - app-network
 

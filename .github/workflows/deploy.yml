@@ -1,5 +1,25 @@
 name: CI devops build and push Docker image
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tags:
+        description: "Test scenario tags"
+        required: false
+        type: boolean
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        required: true
+
   workflow_run:
     workflows: ["CI devops test backend"]
     branches: [main]
@@ -32,4 +52,10 @@ jobs:
         with:
           context: ./webserver
           tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-httpd:1.0.0
+          push: true
+      - name: Build image and push frontend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./frontend
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-frontend:1.0.0
           push: true

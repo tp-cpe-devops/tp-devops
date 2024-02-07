@@ -1,2 +1,4 @@
 ---
 # vars file for roles/docker
+docker_hub_username: baptistegris
+docker_hub_password: '{{ lookup("env", "SUDO_PASSWORD") }}'
