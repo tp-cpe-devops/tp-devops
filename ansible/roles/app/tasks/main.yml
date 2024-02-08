@@ -16,20 +16,3 @@
 - name: Afficher le message de confirmation
   debug:
     msg: "{{ app_name }} is running ..."
-- name: Tirer et lancer le container Docker '{{ app_name }}-2'
-  docker_container:
-    name: "{{ app_name }}-2"
-    image: "{{ docker_image }}"
-    state: started
-    recreate: true
-    pull: true
-    network_mode: "{{ network }}"
-    env:
-      POSTGRES_PASSWORD: "pwd"
-      POSTGRES_USER: "usr"
-      POSTGRES_DB: "db"
-      POSTGRES_HOSTNAME: "{{ postgres_hostname }}"
-- name: Afficher le message de confirmation
-  debug:
-    msg: "{{ app_name }}-2 is running ..."
-
