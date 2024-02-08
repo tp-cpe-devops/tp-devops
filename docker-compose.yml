@@ -14,6 +14,19 @@ services:
       - database
       - httpd
 
+  backend-2:
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=usr
+      - POSTGRES_PASSWORD=pwd
+    image: baptistegris/devops-backend-2:1.0.0
+    container_name: backend-2
+    networks:
+      - app-network
+    depends_on:
+      - database
+      - httpd
+
   database:
     environment:
       - POSTGRES_DB=db

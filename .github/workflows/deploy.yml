@@ -41,6 +41,12 @@ jobs:
           context: ./backend
           tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-backend:1.0.0
           push: true
+      - name: Build image and push backend-2
+        uses: docker/build-push-action@v3
+        with:
+          context: ./backend-2
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-backend-2:1.0.0
+          push: true
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:

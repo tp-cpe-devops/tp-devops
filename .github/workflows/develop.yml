@@ -39,3 +39,19 @@ jobs:
       - name: Quality gate with Sonar
         working-directory: ./backend/simpleapi
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.organization=${{ secrets.ORGANIZATION }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
+  test-backend-2:
+    name: "Test de l'application Spring 2"
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2.5.0
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+      - name: Build and test with Maven
+        working-directory: ./backend-2/simpleapi
+        run: mvn clean verify
+      - name: Quality gate with Sonar
+        working-directory: ./backend-2/simpleapi
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.organization=${{ secrets.ORGANIZATION }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./pom.xml
