@@ -1,5 +1,0 @@
----
-# vars file for roles/app-2
-app_name: backend-2
-docker_image: baptistegris/devops-backend-2:1.0.0
-port_expose: 8090:8090 
